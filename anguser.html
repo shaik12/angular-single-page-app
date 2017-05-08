@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="anguser.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1 style="color:grey" class="jumbotron text-center">Home Screen</h1>
+    <h2 class="well" style="color:&#9998">User Form</h2>
+<form role="form" ng-app="myApp" ng-controller="formCtrl" name="userForm" ng-submit="userValidate()"novalidate>
+
+<div class="form-gruop">
+<label for="username">Enter UserName:</label>
+<input type="text" name="uname" ng-model="user.uname" class="form-control" placeholder="username" required >
+<span style="color:red" ng-show="userForm.uname.$dirty && userForm.uname.$invalid">
+<span ng-show="userForm.uname.$error.required">Username required.</span>
+    </span>
+    </div>
+    
+
+<div class="from-group">
+<label >Enter Password</label>
+<input type="password" class="form-control" name="pass1" ng-model="user.pass1" required ng-minlength="3" ng-maxlength="8"
+       placeholder="password">
+<span style="color:red" ng-show="userForm.pass1.$dirty && userForm.pass1.$invalid">
+<span ng-show="userForm.pass1.$error.required">Password required.</span>
+    </span>
+<span style="color:red" ng-show="userForm.pass1.$error.minlength">password too short.</span>
+    <span style="color:red" ng-show="userForm.pass1.$error.maxlength">password too long.</span>
+    </div>
+<div class="form-group">
+<label >ReEnter Password</label>
+<input class="form-control" type="password" name="pass2" ng-model="user.pass2" required ng-minlength="3" ng-maxlength="8"
+       placeholder="retype password">
+<span style="color:red" ng-show="userForm.pass2.$dirty && userForm.pass2.$invalid">
+<span ng-show="userForm.pass2.$error.required">ReEnterPassword required.</span>
+    </span>
+<span style="color:red" ng-show="userForm.pass2.$error.minlength">password too short.</span>
+    <span style="color:red" ng-show="userForm.pass2.$error.maxlength">password too long.</span>
+    </div>
+<div class="from-group">
+<label for="email">Enter Email Id:</label>
+<input class="form-control" type="email" name="email" ng-model="user.email">
+    <span style="color:blue" ng-show="userForm.email.$invalid && !userForm.email.$pristine">Enter a valid email.</span>
+    </div>
+    
+<button class="btn btn-primary" type="submit"  ng-disabled="userForm.uname.$dirty && userForm.uname.$invalid || userForm.pass1.$dirty && userForm.pass1.$invalid ">submit</button>
+    </form>
+    </div>
+    </body>
+</html>

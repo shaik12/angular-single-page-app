@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="anglogin.js"></script>
+    </head>
+<body>
+<div class="container">
+<h2>Log In Form.</h2>
+<form role="from" ng-app="myApp" ng-controller="valCtrl" name="myForm">
+<div class="form-group">
+<label for="login">Enter LogIn ID</label>
+<input type="text" class="form-control" name="lname" ng-model="id.lname" placeholder="Enter Id" required >
+<span style="color:red" ng-show="myForm.lname.$dirty && myForm.lname.$invalid">
+<span ng-show="myForm.lname.$error.required">LogIn ID required.</span>
+    </span>
+</div>
+<div class="form-group">
+<label for="pwd">Enter Password</label>
+<input type="password" name="pwd" ng-model="id.pwd" class="form-control" placeholder="Enter Password" required>
+<span style="color:red" ng-show="myForm.pwd.$dirty && myForm.pwd.$invalid">
+<span ng-show="myForm.pwd.$error.required">Password required.</span>
+    </span>
+</div>
+<button class="btn btn-primary" ng-click="LoginCheck()" ng-disabled="myForm.lname.$dirty && myForm.lname.$invalid || myForm.pwd.$dirty && myForm.pwd.$invalid">Login</button>
+
+</form>
+    
+</div>
+
+    </body>
+</html>
